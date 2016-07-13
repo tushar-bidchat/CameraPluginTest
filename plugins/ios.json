@@ -9,7 +9,14 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
+        }
+    }
 }
