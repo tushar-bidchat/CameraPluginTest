@@ -1,8 +1,8 @@
 var isPhotoSet = false;
 
 var pictureFromCamera = document.createElement("img");
-    pictureFromCamera.setAttribute("height", "150");
-    pictureFromCamera.setAttribute("width", "150");      
+    pictureFromCamera.setAttribute("height", "300px");
+    pictureFromCamera.setAttribute("width", "100%");      
     pictureFromCamera.setAttribute("id", "camera_image"); 
 
 var app = {
@@ -35,12 +35,14 @@ function buttonOneClicked() {
  **/
 function buttonTwoClicked() {
     
-    if(isPhotoSet == false) {
-        setPicture();
-    }
-    else {
-        clearPicture();
-    }
+    clearPicture();
+    
+//    if(isPhotoSet == false) {
+//        setPicture();
+//    }
+//    else {
+//        clearPicture();
+//    }
 }
 
 function setPicture() {
