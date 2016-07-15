@@ -31,6 +31,14 @@ module.exports = [
         "clobbers": [
             "CameraPopoverHandle"
         ]
+    },
+    {
+        "file": "plugins/bidchat-plugin-imagecrop/www/crop.js",
+        "id": "bidchat-plugin-imagecrop.CropPlugin",
+        "pluginId": "bidchat-plugin-imagecrop",
+        "clobbers": [
+            "plugins.crop"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -38,7 +46,8 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-compat": "1.0.0",
-    "cordova-plugin-camera": "2.2.1-dev"
+    "cordova-plugin-camera": "2.2.1-dev",
+    "bidchat-plugin-imagecrop": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

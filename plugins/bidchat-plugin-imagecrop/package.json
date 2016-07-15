@@ -1,0 +1,26 @@
+{
+  "name": "bidchat-plugin-imagecrop",
+  "version": "1.0.0",
+  "description": "Crop an image in a Cordova app",
+  "cordova": {
+    "id": "bidchat-plugin-imagecrop",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bidchatindia/Bidchat-Plugin-ImageCrop.git"
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "image",
+    "image manipulation",
+    "crop"
+  ],
+  "license": "MIT"
+}

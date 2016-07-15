@@ -18,6 +18,9 @@
     <feature name="Camera">
         <param name="ios-package" value="CDVCamera" />
     </feature>
+    <feature name="CropPlugin">
+        <param name="ios-package" value="CTCrop" />
+    </feature>
     <name>CameraPluginTest</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

@@ -22,5 +22,13 @@
         },
         "is_top_level": false,
         "variables": {}
+    },
+    "bidchat-plugin-imagecrop": {
+        "source": {
+            "type": "local",
+            "path": "/Data/plugins/Bidchat-Plugin-ImageCrop"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

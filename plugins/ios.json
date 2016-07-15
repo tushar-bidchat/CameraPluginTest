@@ -12,6 +12,9 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
+        },
+        "bidchat-plugin-imagecrop": {
+            "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         }
     },
     "dependent_plugins": {
