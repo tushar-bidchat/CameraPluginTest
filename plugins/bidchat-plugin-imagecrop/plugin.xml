@@ -4,7 +4,7 @@
   id="bidchat-plugin-imagecrop"
   version="1.0.0">
 
-  <name>Bidchat-Plugin-ImageCrop</name>
+  <name>bidchat-plugin-imagecrop</name>
 
   <description>
     Crop an image in a Cordova app

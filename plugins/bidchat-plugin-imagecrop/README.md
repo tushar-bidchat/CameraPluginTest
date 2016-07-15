@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ cordova plugin add --save cordova-plugin-crop
+$ cordova plugin add --save https://github.com/bidchatindia/Bidchat-Plugin-ImageCrop.git
 ```
 
 
@@ -20,24 +20,37 @@ plugins.crop(function success () {
 }, '/path/to/image', options)
 ```
 
-or, if you are running on an environment that supports Promises
-(Crosswalk, Android >= KitKat, iOS >= 8)
-
-```js
-plugins.crop.promise('/path/to/image', options)
-.then(function success (newPath) {
-
-})
-.catch(function fail (err) {
-
-})
-```
-
 ## API
 
  * quality: Number
 
 The resulting JPEG quality. default: 100
+
+ * imageHeight: Number
+
+The Crop Rectangle Height.
+
+### Example 
+
+```js
+function cropImage(imagePath) {
+    
+    var onSucess = function(message) {
+        alert("Crop Success : " + message);
+        setPicture(message);
+    };
+    
+    var onFailure = function(message) {
+        alert("Crop Failed with error" + message.code);
+    };
+    
+    var options = { 
+       imageHeight : 300
+    };
+    
+    plugins.crop(onSucess, onFailure, imagePath, options);
+}
+```
 
 ### Libraries used
 
@@ -46,4 +59,4 @@ The resulting JPEG quality. default: 100
 
 ## License
 
-MIT © [Jeduan Cornejo](https://github.com/jeduan)
+MIT © [Bidchat](https://github.com/bidchatindia)
