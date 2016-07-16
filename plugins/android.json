@@ -7,13 +7,13 @@
         "files": {}
     },
     "installed_plugins": {
+        "bidchat-plugin-imagecrop": {
+            "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
+        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
-        },
-        "bidchat-plugin-imagecrop": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         }
     },
