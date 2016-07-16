@@ -1,4 +1,4 @@
-package com.jeduan.crop;
+package com.bidchat.plugin.imagecrop;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -27,7 +27,7 @@ public class CropPlugin extends CordovaPlugin {
       if (action.equals("cropImage")) {
           String imagePath = args.getString(0);
 
-          this.inputUri = Uri.parse(imagePath);
+          this.inputUri = Uri.parse("file://" + imagePath);
           this.outputUri = Uri.fromFile(new File(getTempDirectoryPath() + "/" + System.currentTimeMillis()+ "-cropped.jpg"));
 
           PluginResult pr = new PluginResult(PluginResult.Status.NO_RESULT);

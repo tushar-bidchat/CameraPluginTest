@@ -9,7 +9,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"CropPlugin\"><param name=\"android-package\" value=\"com.bidchat.plugin.CropPlugin\" /></feature>",
+                            "xml": "<feature name=\"CropPlugin\"><param name=\"android-package\" value=\"com.bidchat.plugin.imagecrop.CropPlugin\" /></feature>",
                             "count": 1
                         },
                         {
