@@ -9,7 +9,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"CropPlugin\"><param name=\"android-package\" value=\"com.bidchat.plugin.imagecrop.CropPlugin\" /></feature>",
+                            "xml": "<feature name=\"CropPlugin\"><param name=\"android-package\" value=\"com.bidchat.crop.CropPlugin\" /></feature>",
                             "count": 1
                         },
                         {
@@ -27,7 +27,7 @@
                 "parents": {
                     "/manifest/application": [
                         {
-                            "xml": "<activity android:name=\"com.soundcloud.android.crop.CropImageActivity\" />",
+                            "xml": "<activity android:name=\"com.yalantis.ucrop.UCropActivity\" android:screenOrientation=\"portrait\" android:theme=\"@style/Theme.AppCompat.Light.NoActionBar\" />",
                             "count": 1
                         }
                     ],

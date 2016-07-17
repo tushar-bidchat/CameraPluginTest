@@ -51,20 +51,23 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="CropPlugin">
-        <param name="android-package" value="com.bidchat.plugin.imagecrop.CropPlugin"/>
+        <param name="android-package" value="com.bidchat.crop.CropPlugin"/>
       </feature>
     </config-file>
 
-    <framework src="com.soundcloud.android:android-crop:1.0.0@aar" />
+    <framework src="com.yalantis:ucrop:2.1.1" />
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     </config-file>
 
-    <source-file src="src/android/CropPlugin.java" target-dir="src/com/bidchat/plugin/imagecrop" />
+    <source-file src="src/android/CropPlugin.java" target-dir="src/com/bidchat/crop" />
   </platform>
 </plugin>

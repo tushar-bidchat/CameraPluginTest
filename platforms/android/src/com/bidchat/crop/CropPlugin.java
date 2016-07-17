@@ -1,12 +1,14 @@
-package com.bidchat.plugin.imagecrop;
+package com.bidchat.crop;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.DisplayMetrics;
+import android.util.Log;
 
-import com.soundcloud.android.crop.Crop;
+import com.yalantis.ucrop.UCrop;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -18,40 +20,60 @@ import org.json.JSONObject;
 import java.io.File;
 
 public class CropPlugin extends CordovaPlugin {
+
     private CallbackContext callbackContext;
     private Uri inputUri;
     private Uri outputUri;
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-      if (action.equals("cropImage")) {
-          String imagePath = args.getString(0);
+        if (action.equals("cropImage")) {
+            int width = getDeviceWidth(), height = getDeviceWidth();
+            int quality = 0;
+            if (args.length() > 1) {
+                quality = args.getJSONObject(1).getInt("quality");
+                height = args.getJSONObject(1).getInt("imageHeight");
+            }
+            String imagePath = args.getString(0);
 
-          this.inputUri = Uri.parse("file://" + imagePath);
-          this.outputUri = Uri.fromFile(new File(getTempDirectoryPath() + "/" + System.currentTimeMillis()+ "-cropped.jpg"));
+            height = height == 0 ? width : height;
+            quality = quality == 0 ? 100 : quality;
 
-          PluginResult pr = new PluginResult(PluginResult.Status.NO_RESULT);
-          pr.setKeepCallback(true);
-          callbackContext.sendPluginResult(pr);
-          this.callbackContext = callbackContext;
+            this.inputUri = Uri.parse("file://" + imagePath);
+            this.outputUri = Uri.fromFile(new File(getTempDirectoryPath() + "/" + System.currentTimeMillis() + "-cropped.jpg"));
 
-          cordova.setActivityResultCallback(this);
-          Crop.of(this.inputUri, this.outputUri)
-                  .asSquare()
-                  .start(cordova.getActivity());
-          return true;
-      }
-      return false;
+            PluginResult pr = new PluginResult(PluginResult.Status.NO_RESULT);
+            pr.setKeepCallback(true);
+            callbackContext.sendPluginResult(pr);
+            this.callbackContext = callbackContext;
+            Log.i("Reached here", "Before start");
+            cordova.setActivityResultCallback(this);
+            UCrop.Options options = new UCrop.Options();
+            options.setHideBottomControls(true);
+            options.withMaxResultSize(width, height);
+            options.setCompressionQuality(quality);
+            UCrop.of(this.inputUri, this.outputUri)
+                    .withOptions(options)
+                    .withAspectRatio(width, height)
+                    .withMaxResultSize(width, height)
+                    .start(cordova.getActivity());
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == Crop.REQUEST_CROP) {
+        if (requestCode == UCrop.REQUEST_CROP) {
             if (resultCode == Activity.RESULT_OK) {
-                Uri imageUri = Crop.getOutput(intent);
-                this.callbackContext.success("file://" + imageUri.getPath() + "?" + System.currentTimeMillis());
+                Uri imageUri = UCrop.getOutput(intent);
+                if (imageUri != null) {
+                    this.callbackContext.success("file://" + imageUri.getPath());
+                } else {
+                    this.callbackContext.error("Image not found");
+                }
                 this.callbackContext = null;
-            } else if (resultCode == Crop.RESULT_ERROR) {
+            } else if (resultCode == UCrop.RESULT_ERROR) {
                 try {
                     JSONObject err = new JSONObject();
                     err.put("message", "Error on cropping");
@@ -76,8 +98,14 @@ public class CropPlugin extends CordovaPlugin {
         super.onActivityResult(requestCode, resultCode, intent);
     }
 
+    int getDeviceWidth() {
+        DisplayMetrics metrics = new DisplayMetrics();
+        cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        return metrics.widthPixels;
+    }
+
     private String getTempDirectoryPath() {
-        File cache = null;
+        File cache;
 
         // SD Card Mounted
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
@@ -90,8 +118,10 @@ public class CropPlugin extends CordovaPlugin {
         }
 
         // Create the cache directory if it doesn't exist
+        //noinspection ResultOfMethodCallIgnored
         cache.mkdirs();
         return cache.getAbsolutePath();
+
     }
 
     public Bundle onSaveInstanceState() {
@@ -120,4 +150,5 @@ public class CropPlugin extends CordovaPlugin {
 
         this.callbackContext = callbackContext;
     }
+
 }

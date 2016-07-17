@@ -52,10 +52,27 @@ function cropImage(imagePath) {
 }
 ```
 
+### For Android-Cordova
+In case you get this error "Error: Width (0) and height (0) cannot be <= 0" add the following to gradle
+
+
+ android {  
+   defaultConfig {  
+     generatedDensities = []  
+  }  
+
+  // This is handled for you by the 2.0+ Gradle Plugin  
+  aaptOptions {  
+    additionalParameters "--no-version-vectors"  
+  }  
+ }
+
+ https://github.com/Yalantis/uCrop/issues/84
+
 ### Libraries used
 
  * iOS: [PEPhotoCropEditor](https://github.com/kishikawakatsumi/PEPhotoCropEditor)
- * Android: [android-crop](https://github.com/jdamcd/android-crop)
+ * Android: [uCrop](https://github.com/Yalantis/uCrop)
 
 ## License
 

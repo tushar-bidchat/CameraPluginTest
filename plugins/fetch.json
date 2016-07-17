@@ -25,8 +25,9 @@
     },
     "bidchat-plugin-imagecrop": {
         "source": {
-            "type": "local",
-            "path": "/Data/plugins/Bidchat-Plugin-ImageCrop"
+            "type": "git",
+            "url": "https://github.com/bidchatindia/Bidchat-Plugin-ImageCrop.git",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}
