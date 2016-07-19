@@ -7,14 +7,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-camera": {
-        "source": {
-            "type": "local",
-            "path": "/Data/git/Plugin/Camera"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-compat": {
         "source": {
             "type": "registry",
@@ -27,6 +19,15 @@
         "source": {
             "type": "git",
             "url": "https://github.com/bidchatindia/Bidchat-Plugin-ImageCrop.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-camera": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tushar-bidchat/cordova-plugin-camera.git",
             "subdir": "."
         },
         "is_top_level": true,

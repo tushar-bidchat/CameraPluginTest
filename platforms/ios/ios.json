@@ -9,15 +9,15 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"CropPlugin\"><param name=\"ios-package\" value=\"CTCrop\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"CropPlugin\"><param name=\"ios-package\" value=\"CTCrop\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -39,18 +39,26 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         },
+        "bidchat-plugin-imagecrop": {
+            "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
+        },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
-        },
-        "bidchat-plugin-imagecrop": {
-            "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         }
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/bidchat-plugin-imagecrop/www/crop.js",
+            "id": "bidchat-plugin-imagecrop.CropPlugin",
+            "pluginId": "bidchat-plugin-imagecrop",
+            "clobbers": [
+                "plugins.crop"
+            ]
+        },
         {
             "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
             "id": "cordova-plugin-camera.Camera",
@@ -82,20 +90,12 @@
             "clobbers": [
                 "CameraPopoverHandle"
             ]
-        },
-        {
-            "file": "plugins/bidchat-plugin-imagecrop/www/crop.js",
-            "id": "bidchat-plugin-imagecrop.CropPlugin",
-            "pluginId": "bidchat-plugin-imagecrop",
-            "clobbers": [
-                "plugins.crop"
-            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
+        "bidchat-plugin-imagecrop": "1.0.0",
         "cordova-plugin-compat": "1.0.0",
-        "cordova-plugin-camera": "2.2.1-dev",
-        "bidchat-plugin-imagecrop": "1.0.0"
+        "cordova-plugin-camera": "2.2.1-dev"
     }
 }

@@ -15,11 +15,11 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="Camera">
-        <param name="ios-package" value="CDVCamera" />
-    </feature>
     <feature name="CropPlugin">
         <param name="ios-package" value="CTCrop" />
+    </feature>
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
     </feature>
     <name>CameraPluginTest</name>
     <description>

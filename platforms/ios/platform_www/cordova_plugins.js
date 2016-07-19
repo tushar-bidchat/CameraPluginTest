@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+        "file": "plugins/bidchat-plugin-imagecrop/www/crop.js",
+        "id": "bidchat-plugin-imagecrop.CropPlugin",
+        "pluginId": "bidchat-plugin-imagecrop",
+        "clobbers": [
+            "plugins.crop"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
         "id": "cordova-plugin-camera.Camera",
         "pluginId": "cordova-plugin-camera",
@@ -31,23 +39,15 @@ module.exports = [
         "clobbers": [
             "CameraPopoverHandle"
         ]
-    },
-    {
-        "file": "plugins/bidchat-plugin-imagecrop/www/crop.js",
-        "id": "bidchat-plugin-imagecrop.CropPlugin",
-        "pluginId": "bidchat-plugin-imagecrop",
-        "clobbers": [
-            "plugins.crop"
-        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "cordova-plugin-whitelist": "1.2.2",
+    "bidchat-plugin-imagecrop": "1.0.0",
     "cordova-plugin-compat": "1.0.0",
-    "cordova-plugin-camera": "2.2.1-dev",
-    "bidchat-plugin-imagecrop": "1.0.0"
+    "cordova-plugin-camera": "2.2.1-dev"
 }
 // BOTTOM OF METADATA
 });

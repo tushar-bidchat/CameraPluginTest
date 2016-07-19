@@ -13,11 +13,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -51,13 +51,13 @@
         "bidchat-plugin-imagecrop": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
+        },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
-        },
-        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.bidchat.CameraPluginTest"
         }
     },
@@ -101,8 +101,8 @@
     ],
     "plugin_metadata": {
         "bidchat-plugin-imagecrop": "1.0.0",
+        "cordova-plugin-whitelist": "1.2.2",
         "cordova-plugin-compat": "1.0.0",
-        "cordova-plugin-camera": "2.2.1-dev",
-        "cordova-plugin-whitelist": "1.2.2"
+        "cordova-plugin-camera": "2.2.1-dev"
     }
 }
